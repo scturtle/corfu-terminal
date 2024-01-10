@@ -1,0 +1,5 @@
+#+title: Corfu popup on terminal
+
+Corfu popup on terminal with overlays.
+
+Forked from [[https://codeberg.org/akib/emacs-corfu-terminal][akib/emacs-corfu-terminal]] and [[https://codeberg.org/akib/emacs-popon][akib/emacs-popon]].
