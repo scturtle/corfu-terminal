@@ -75,9 +75,10 @@ selection.  Show a vertical scroll bar of size BAR + 1 from LOth line."
 (defun corfu-terminal--x-y-at-pos (point)
   (let ((window-start-x-y (posn-col-row (posn-at-point (window-start))))
         (point-x-y (posn-col-row (posn-at-point point))))
-    (cons (- (save-excursion (goto-char point) (current-column))
-             (window-hscroll))
-          ;; (- (car point-x-y) (car window-start-x-y))  ;; FIXME: selecting
+    (cons (if (or (not truncate-lines) word-wrap)
+              (- (car point-x-y) (car window-start-x-y))
+            (- (save-excursion (goto-char point) (current-column))
+               (window-hscroll)))
           (- (cdr point-x-y) (cdr window-start-x-y)))))
 
 (defun corfu-terminal--is-invisible (point)
